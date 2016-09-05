@@ -72,7 +72,7 @@ extension MainViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: mediaCellID, for: indexPath) as! MedioCollectionViewCell
-        let url = URL(fileURLWithPath: Bundle.main.pathForResource("Can't Feel My Face", ofType: "mp4")!)
+        let url = URL(fileURLWithPath: Bundle.main.pathForResource("Can't Feel My Face", ofType: "mp4") ?? "")
         cell.layer.borderWidth = 10
         cell.layer.borderColor = UIColor.white().cgColor
         cell.medioUrl = url
