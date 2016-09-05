@@ -1,6 +1,6 @@
 //
 //  ImportViewController.swift
-//  shixi
+//  视频导入界面
 //
 //  Created by Jinyong on 16/8/6.
 //  Copyright © 2016年 Jinyong. All rights reserved.
@@ -53,9 +53,6 @@ class ImportViewController: UIViewController {
     
     private func setupUI() {
         self.view.backgroundColor = UIColor.shixiBGColor()
-//        starBtn.setTitle("明星专场视频导入", for: .normal)
-//        activityBtn.setTitle("活动直播视频导入", for: .normal)
-//        trailerBtn.setTitle("宣传片视频导入", for: .normal)
         
         self.view.addSubview(logoImigeView)
         self.view.addSubview(starBtn)

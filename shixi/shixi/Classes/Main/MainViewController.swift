@@ -13,33 +13,33 @@ import AVKit
 let mediaCellID = "mediaCollectionView"
 
 class MainViewController: UIViewController {
-    var player: AVPlayer?
-    var bool = false
-    var importVC = ImportViewController()
-    // MARK: 系统调用方法
+    
+    private var player: AVPlayer?
+    private var bool = false
+    private var importVC = ImportViewController()
+    
+    private var menuButton = MenuView(frame: CGRect(x: 10, y: 10, width: 44, height: 44), image: nil, selectedImage: nil)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // 配置子控件
         setupUI()
-        
-        // 布局约束
         setupConstraints()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if !bool {
-            self.present(importVC, animated: true, completion: nil)
-        }
+//        if !bool {
+//            self.present(importVC, animated: true, completion: nil)
+//        }
     }
     
-    // MARK: 内部控制方法
+    // MARK: private function
     private func setupUI() {
         self.view.backgroundColor = UIColor.red()
         navigationController?.navigationBar.isHidden = true
         
-        // 配置collectionView
         self.view.addSubview(mediaCollectionView)
+        self.view.addSubview(menuButton)
     }
     
     private func setupConstraints() {
@@ -63,7 +63,7 @@ class MainViewController: UIViewController {
     }()
 }
 
-// MARK: - Extension
+// MARK: - Extension class
 
 extension MainViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
