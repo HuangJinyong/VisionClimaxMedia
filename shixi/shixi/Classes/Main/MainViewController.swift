@@ -1,6 +1,6 @@
 //
 //  MainViewController.swift
-//  shixi
+//  当沙盒目录中有视频的时候，显示主界面
 //
 //  Created by Jinyong on 16/8/4.
 //  Copyright © 2016年 Jinyong. All rights reserved.
@@ -14,7 +14,8 @@ let mediaCellID = "mediaCollectionView"
 
 class MainViewController: UIViewController {
     var player: AVPlayer?
-    
+    var bool = false
+    var importVC = ImportViewController()
     // MARK: 系统调用方法
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,13 @@ class MainViewController: UIViewController {
         
         // 布局约束
         setupConstraints()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if !bool {
+            self.present(importVC, animated: true, completion: nil)
+        }
     }
     
     // MARK: 内部控制方法
@@ -48,6 +56,7 @@ class MainViewController: UIViewController {
     private lazy var mediaCollectionView: UICollectionView = {
         let clv = UICollectionView(frame: SCREEN_BOUNDS, collectionViewLayout: JYLineLayout())
         clv.register(MedioCollectionViewCell.self, forCellWithReuseIdentifier: mediaCellID)
+        clv.backgroundColor = UIColor(red: 19 / 255.0, green: 27 / 255.0, blue: 38 / 255.0, alpha: 1.0)
         clv.dataSource = self
         clv.delegate = self
         return clv
@@ -64,8 +73,6 @@ extension MainViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: mediaCellID, for: indexPath) as! MedioCollectionViewCell
         let url = URL(fileURLWithPath: Bundle.main.pathForResource("Can't Feel My Face", ofType: "mp4")!)
-
-        cell.backgroundColor = UIColor.yellow()
         cell.layer.borderWidth = 10
         cell.layer.borderColor = UIColor.white().cgColor
         cell.medioUrl = url
@@ -76,11 +83,9 @@ extension MainViewController: UICollectionViewDataSource {
 
 extension MainViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("11111")
         if let cell = collectionView.cellForItem(at: indexPath) as? MedioCollectionViewCell{
             cell.player?.play()
             print("1111")
         }
-        
     }
 }

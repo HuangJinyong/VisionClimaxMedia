@@ -12,11 +12,13 @@
 		4B12300B1D52323500B53C79 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B1230091D52323500B53C79 /* LaunchScreen.storyboard */; };
 		4B1230161D52323500B53C79 /* shixiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1230151D52323500B53C79 /* shixiTests.swift */; };
 		4B1230211D52323500B53C79 /* shixiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B1230201D52323500B53C79 /* shixiUITests.swift */; };
-		4B3224391D532F0400002758 /* Configure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3224381D532F0400002758 /* Configure.swift */; };
-		4B5AD2021D5343D10052814E /* JYLineLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5AD2011D5343D10052814E /* JYLineLayout.swift */; };
 		4B65EEC21D53AB4300DE35BB /* Can't Feel My Face.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 4B65EEC11D53AB4300DE35BB /* Can't Feel My Face.mp4 */; };
-		4B65EEC41D53B06100DE35BB /* MedioCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B65EEC31D53B06100DE35BB /* MedioCollectionViewCell.swift */; };
-		4BB841131D532351003F156A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB841121D532351003F156A /* MainViewController.swift */; };
+		4BCAF2961D55E5B300290B67 /* JYLineLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCAF2911D55E5B300290B67 /* JYLineLayout.swift */; };
+		4BCAF2971D55E5B300290B67 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCAF2921D55E5B300290B67 /* MainViewController.swift */; };
+		4BCAF2981D55E5B300290B67 /* MedioCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCAF2931D55E5B300290B67 /* MedioCollectionViewCell.swift */; };
+		4BCAF2991D55E5B300290B67 /* Configure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCAF2951D55E5B300290B67 /* Configure.swift */; };
+		4BCAF29C1D55E63800290B67 /* ImportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCAF29B1D55E63800290B67 /* ImportViewController.swift */; };
+		4BCD48BE1D55EDB200D860D2 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BCD48BD1D55EDB200D860D2 /* Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,11 +50,13 @@
 		4B12301C1D52323500B53C79 /* shixiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = shixiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B1230201D52323500B53C79 /* shixiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = shixiUITests.swift; sourceTree = "<group>"; };
 		4B1230221D52323500B53C79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4B3224381D532F0400002758 /* Configure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configure.swift; sourceTree = "<group>"; };
-		4B5AD2011D5343D10052814E /* JYLineLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JYLineLayout.swift; sourceTree = "<group>"; };
 		4B65EEC11D53AB4300DE35BB /* Can't Feel My Face.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Can't Feel My Face.mp4"; sourceTree = "<group>"; };
-		4B65EEC31D53B06100DE35BB /* MedioCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedioCollectionViewCell.swift; sourceTree = "<group>"; };
-		4BB841121D532351003F156A /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		4BCAF2911D55E5B300290B67 /* JYLineLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JYLineLayout.swift; sourceTree = "<group>"; };
+		4BCAF2921D55E5B300290B67 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		4BCAF2931D55E5B300290B67 /* MedioCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedioCollectionViewCell.swift; sourceTree = "<group>"; };
+		4BCAF2951D55E5B300290B67 /* Configure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configure.swift; sourceTree = "<group>"; };
+		4BCAF29B1D55E63800290B67 /* ImportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportViewController.swift; sourceTree = "<group>"; };
+		4BCD48BD1D55EDB200D860D2 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,9 +107,8 @@
 		4B122FFF1D52323500B53C79 /* shixi */ = {
 			isa = PBXGroup;
 			children = (
+				4BCAF28F1D55E5B300290B67 /* Classes */,
 				4B1230001D52323500B53C79 /* AppDelegate.swift */,
-				4B12302E1D5235FD00B53C79 /* Main */,
-				4B12302F1D52360400B53C79 /* Tools */,
 				4B1230071D52323500B53C79 /* Assets.xcassets */,
 				4B65EEC11D53AB4300DE35BB /* Can't Feel My Face.mp4 */,
 				4B1230091D52323500B53C79 /* LaunchScreen.storyboard */,
@@ -132,22 +135,49 @@
 			path = shixiUITests;
 			sourceTree = "<group>";
 		};
-		4B12302E1D5235FD00B53C79 /* Main */ = {
+		4BCAF28F1D55E5B300290B67 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				4BB841121D532351003F156A /* MainViewController.swift */,
-				4B5AD2011D5343D10052814E /* JYLineLayout.swift */,
-				4B65EEC31D53B06100DE35BB /* MedioCollectionViewCell.swift */,
+				4BCAF29D1D55E70100290B67 /* Loading */,
+				4BCAF29A1D55E62500290B67 /* Import */,
+				4BCAF2901D55E5B300290B67 /* Main */,
+				4BCAF2941D55E5B300290B67 /* Tools */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		4BCAF2901D55E5B300290B67 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				4BCAF2921D55E5B300290B67 /* MainViewController.swift */,
+				4BCAF2931D55E5B300290B67 /* MedioCollectionViewCell.swift */,
+				4BCAF2911D55E5B300290B67 /* JYLineLayout.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
 		};
-		4B12302F1D52360400B53C79 /* Tools */ = {
+		4BCAF2941D55E5B300290B67 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				4B3224381D532F0400002758 /* Configure.swift */,
+				4BCAF2951D55E5B300290B67 /* Configure.swift */,
+				4BCD48BD1D55EDB200D860D2 /* Extension.swift */,
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		4BCAF29A1D55E62500290B67 /* Import */ = {
+			isa = PBXGroup;
+			children = (
+				4BCAF29B1D55E63800290B67 /* ImportViewController.swift */,
+			);
+			path = Import;
+			sourceTree = "<group>";
+		};
+		4BCAF29D1D55E70100290B67 /* Loading */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Loading;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,11 +320,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BCD48BE1D55EDB200D860D2 /* Extension.swift in Sources */,
+				4BCAF2971D55E5B300290B67 /* MainViewController.swift in Sources */,
+				4BCAF2981D55E5B300290B67 /* MedioCollectionViewCell.swift in Sources */,
+				4BCAF2961D55E5B300290B67 /* JYLineLayout.swift in Sources */,
+				4BCAF29C1D55E63800290B67 /* ImportViewController.swift in Sources */,
 				4B1230011D52323500B53C79 /* AppDelegate.swift in Sources */,
-				4BB841131D532351003F156A /* MainViewController.swift in Sources */,
-				4B5AD2021D5343D10052814E /* JYLineLayout.swift in Sources */,
-				4B65EEC41D53B06100DE35BB /* MedioCollectionViewCell.swift in Sources */,
-				4B3224391D532F0400002758 /* Configure.swift in Sources */,
+				4BCAF2991D55E5B300290B67 /* Configure.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
