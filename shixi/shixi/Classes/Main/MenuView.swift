@@ -10,9 +10,8 @@ import UIKit
 
 public class MenuView: UIView {
     
-    public var menuItems: [MenuItem] = []
     
-    
+    private var menuItems: [MenuItem] = []
     private var centerButton: UIButton = UIButton()
     private var foldedFrame: CGRect = CGRect.zero
     private var unfoldedFrame: CGRect = SCREEN_BOUNDS
@@ -43,7 +42,17 @@ public class MenuView: UIView {
         
     }
     
-    // MARK: - private function
+    // MARK: public function
+    public func addMenuItems(items: [MenuItem]) {
+        for item in items {
+            item.frame.origin = foldedFrame.origin
+            item.alpha = 0.0
+        }
+        
+        menuItems += items
+    }
+    
+    // MARK: private function
     @objc private func clickCenterBtn() {
         print("clickCenterBtn")
     }
@@ -64,12 +73,34 @@ public class MenuView: UIView {
 
 public class MenuItem: UIView {
     
-    override init(frame: CGRect) {
+    private var itemButton: UIButton = UIButton()
+    private var iconView = UIView()
+    private var tappedAction: (() -> Void)?
+    
+    init(frame: CGRect, title: String, itemTapped: (() -> Void)?) {
         super.init(frame: frame)
+        
     }
     
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: private function
+    
+    func createMenuItem() {
+        self.addSubview(iconView)
+        self.addSubview(itemButton)
+        
+        // constraints
+        iconView.translatesAutoresizingMaskIntoConstraints = false
+        itemButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.addConstraint(NSLayoutConstraint(item: iconView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 2.0))
+        self.addConstraint(NSLayoutConstraint(item: iconView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 44.0)
+        
+        // configure
+        
     }
     
 }
