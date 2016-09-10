@@ -9,8 +9,6 @@
 import UIKit
 
 public class MenuView: UIView {
-    
-    
     private var menuItems: [MenuItem] = []
     private var centerButton: UIButton = UIButton()
     private var foldedFrame: CGRect = CGRect.zero
@@ -57,10 +55,12 @@ public class MenuView: UIView {
         print("clickCenterBtn")
     }
     
+    // 折叠动画
     private func foldedAnimate() {
         isUnfolded = false
     }
     
+    // 展开动画
     private func unfoldedAnimate() {
         isUnfolded = true
     }
@@ -73,12 +73,30 @@ public class MenuView: UIView {
 
 public class MenuItem: UIView {
     
-    private var itemButton: UIButton = UIButton()
+    private var itemButton = UIButton()
     private var iconView = UIView()
     private var tappedAction: (() -> Void)?
     
     init(frame: CGRect, title: String, itemTapped: (() -> Void)?) {
         super.init(frame: frame)
+        
+        func createMenuItem() {
+            self.addSubview(iconView)
+            self.addSubview(itemButton)
+            
+            // constraints
+            iconView.translatesAutoresizingMaskIntoConstraints = false
+            itemButton.translatesAutoresizingMaskIntoConstraints = false
+            
+            self.addConstraint(NSLayoutConstraint(item: iconView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 2.0))
+            self.addConstraint(NSLayoutConstraint(item: iconView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 44.0))
+            self.addConstraint(NSLayoutConstraint(item: iconView, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1.0, constant: 0.0))
+            self.addConstraint(NSLayoutConstraint(item: iconView, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1.0, constant: 0.0))
+            
+            // configure
+            self.iconView.backgroundColor = UIColor.shixiBGColor()
+            
+        }
         
     }
     
@@ -88,19 +106,6 @@ public class MenuItem: UIView {
     
     // MARK: private function
     
-    func createMenuItem() {
-        self.addSubview(iconView)
-        self.addSubview(itemButton)
-        
-        // constraints
-        iconView.translatesAutoresizingMaskIntoConstraints = false
-        itemButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        self.addConstraint(NSLayoutConstraint(item: iconView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 2.0))
-        self.addConstraint(NSLayoutConstraint(item: iconView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 44.0)
-        
-        // configure
-        
-    }
+    
     
 }
