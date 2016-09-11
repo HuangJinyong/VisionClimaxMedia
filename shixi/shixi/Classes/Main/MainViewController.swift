@@ -40,6 +40,10 @@ class MainViewController: UIViewController {
         
         self.view.addSubview(mediaCollectionView)
         self.view.addSubview(menuButton)
+        
+        let item = MenuItem(frame: CGRect(x: 50, y: 20, width: 100, height: 44), itemTapped: nil)
+        item.title = "你好吗"
+        self.view.addSubview(item)
     }
     
     private func setupConstraints() {

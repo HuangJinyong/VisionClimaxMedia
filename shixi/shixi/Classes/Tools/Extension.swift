@@ -9,8 +9,14 @@
 import UIKit
 
 extension UIColor {
+    /// 背景颜色
     class func shixiBGColor() -> UIColor {
         return UIColor(red: 19 / 255.0, green: 27 / 255.0, blue: 38 / 255.0, alpha: 1.0)
+    }
+    
+    /// 辅助颜色
+    class func shixiFZColor() -> UIColor {
+        return UIColor(red: 19 / 255.0, green: 140 / 255.0, blue: 132 / 255.0, alpha: 1.0)
     }
 }
 

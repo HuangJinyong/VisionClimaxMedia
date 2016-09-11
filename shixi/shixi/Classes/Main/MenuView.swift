@@ -1,6 +1,6 @@
 //
 //  MenuViewController.swift
-//  菜单控制器
+//  菜单按钮
 //
 //  Created by Jinyong on 16/9/5.
 //  Copyright © 2016年 Jinyong. All rights reserved.
@@ -9,6 +9,7 @@
 import UIKit
 
 public class MenuView: UIView {
+    
     private var menuItems: [MenuItem] = []
     private var centerButton: UIButton = UIButton()
     private var foldedFrame: CGRect = CGRect.zero
@@ -72,32 +73,56 @@ public class MenuView: UIView {
 
 
 public class MenuItem: UIView {
+    public var title: String? {
+        get {
+            return self.itemButton.titleLabel?.text
+        }
+        
+        set {
+            self.itemButton.setTitle(newValue, for: .normal)
+        }
+    }
     
     private var itemButton = UIButton()
     private var iconView = UIView()
     private var tappedAction: (() -> Void)?
     
-    init(frame: CGRect, title: String, itemTapped: (() -> Void)?) {
-        super.init(frame: frame)
-        
-        func createMenuItem() {
+    init(frame: CGRect, itemTapped: (() -> Void)?) {
+        func createMenuItem(frame: CGRect) {
             self.addSubview(iconView)
             self.addSubview(itemButton)
             
+            let iconHeight = frame.height / 3.0 + 2.0
+            let itemWidth = frame.width
+            
             // constraints
+            //
             iconView.translatesAutoresizingMaskIntoConstraints = false
             itemButton.translatesAutoresizingMaskIntoConstraints = false
-            
-            self.addConstraint(NSLayoutConstraint(item: iconView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 2.0))
-            self.addConstraint(NSLayoutConstraint(item: iconView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 44.0))
-            self.addConstraint(NSLayoutConstraint(item: iconView, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1.0, constant: 0.0))
-            self.addConstraint(NSLayoutConstraint(item: iconView, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1.0, constant: 0.0))
+            // iconView constraint
+            self.addConstraint(NSLayoutConstraint(item: iconView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 5.0))
+            self.addConstraint(NSLayoutConstraint(item: iconView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: iconHeight))
+            self.addConstraint(NSLayoutConstraint(item: iconView, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1.0, constant: 0.0))
+            self.addConstraint(NSLayoutConstraint(item: iconView, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1.0, constant: 0.0))
+            // itemButton constraint
+            self.addConstraint(NSLayoutConstraint(item: itemButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: itemWidth))
+            self.addConstraint(NSLayoutConstraint(item: itemButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: frame.height))
+            self.addConstraint(NSLayoutConstraint(item: itemButton, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1.0, constant: 0))
+            self.addConstraint(NSLayoutConstraint(item: itemButton, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1.0, constant: 0.0))
             
             // configure
-            self.iconView.backgroundColor = UIColor.shixiBGColor()
-            
+            //
+            self.iconView.backgroundColor = UIColor.shixiFZColor()
+            self.itemButton.addTarget(self, action: #selector(self.tapped), for: .touchUpInside)
+            self.itemButton.contentHorizontalAlignment = .left
+            self.itemButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: 8.0, bottom: 0, right: 0)
         }
         
+        super.init(frame: frame)
+        createMenuItem(frame: frame)
+        self.tappedAction = itemTapped
+
+
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -105,6 +130,11 @@ public class MenuItem: UIView {
     }
     
     // MARK: private function
+    @objc private func tapped() {
+        print("tapped--------")
+        tappedAction?()
+
+    }
     
     
     
