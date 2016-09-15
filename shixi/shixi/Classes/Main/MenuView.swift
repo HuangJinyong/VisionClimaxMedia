@@ -25,9 +25,9 @@ public class MenuView: UIView {
         centerButton.setImage(selectedImage, for: .selected)
         centerButton.addTarget(self, action: #selector(self.clickCenterBtn), for: .touchUpInside)
         centerButton.layer.cornerRadius = frame.size.width * 0.5
-        centerButton.backgroundColor = UIColor.red()
+        centerButton.backgroundColor = UIColor.red
         
-        self.backgroundColor = UIColor.gray()
+        self.backgroundColor = UIColor.shixiBGColor()
         self.addSubview(centerButton)
         
     }
@@ -38,7 +38,7 @@ public class MenuView: UIView {
     
     
     public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
+        foldedOrUnfoldedAnimate()
     }
     
     // MARK: public function
@@ -52,20 +52,33 @@ public class MenuView: UIView {
     }
     
     // MARK: private function
+    
     @objc private func clickCenterBtn() {
-        print("clickCenterBtn")
+        foldedOrUnfoldedAnimate()
     }
     
-    // 折叠动画
-    private func foldedAnimate() {
-        isUnfolded = false
+    // 折叠或展开动画
+    private func foldedOrUnfoldedAnimate() {
+        if isUnfolded { // 如果是展开的，就进行折叠
+            isUnfolded = false
+            
+            UIView.animate(withDuration: 0.1, animations: {
+                self.frame = self.foldedFrame
+                self.alpha += 0.2
+            }) { (_) in
+                
+            }
+        } else { // 如果是折叠，就进行展开
+            isUnfolded = true
+            
+            UIView.animate(withDuration: 0.1, animations: {
+                self.frame = SCREEN_BOUNDS
+                self.alpha -= 0.2
+            }) { (_) in
+                
+            }
+        }
     }
-    
-    // 展开动画
-    private func unfoldedAnimate() {
-        isUnfolded = true
-    }
-    
     
 
 }
@@ -121,8 +134,6 @@ public class MenuItem: UIView {
         super.init(frame: frame)
         createMenuItem(frame: frame)
         self.tappedAction = itemTapped
-
-
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -133,9 +144,5 @@ public class MenuItem: UIView {
     @objc private func tapped() {
         print("tapped--------")
         tappedAction?()
-
     }
-    
-    
-    
 }

@@ -12,7 +12,6 @@ import AVFoundation
 
 class MedioCollectionViewCell: UICollectionViewCell {
     
-    
     var player: AVPlayer?
     
     /// 视频源路径
@@ -57,7 +56,7 @@ class MedioCollectionViewCell: UICollectionViewCell {
         setupConstraints()
     }
     
-    // MARK: 内部控制方法
+    // MARK: - 内部控制方法
     // 提取视频的图片作为封面
     private func getMedioImage(url: URL) -> UIImage? {
         let generator = AVAssetImageGenerator(asset: AVAsset(url: url))

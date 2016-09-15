@@ -35,15 +35,11 @@ class MainViewController: UIViewController {
     
     // MARK: private function
     private func setupUI() {
-        self.view.backgroundColor = UIColor.red()
+        self.view.backgroundColor = UIColor.red
         navigationController?.navigationBar.isHidden = true
         
         self.view.addSubview(mediaCollectionView)
         self.view.addSubview(menuButton)
-        
-        let item = MenuItem(frame: CGRect(x: 50, y: 20, width: 100, height: 44), itemTapped: nil)
-        item.title = "你好吗"
-        self.view.addSubview(item)
     }
     
     private func setupConstraints() {
@@ -76,9 +72,9 @@ extension MainViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: mediaCellID, for: indexPath) as! MedioCollectionViewCell
-        let url = URL(fileURLWithPath: Bundle.main.pathForResource("Can't Feel My Face", ofType: "mp4") ?? "")
+        let url = URL(fileURLWithPath: Bundle.main.path(forResource: "Can't Feel My Face", ofType: "mp4") ?? "")
         cell.layer.borderWidth = 10
-        cell.layer.borderColor = UIColor.white().cgColor
+        cell.layer.borderColor = UIColor.white.cgColor
         cell.medioUrl = url
         
         return cell

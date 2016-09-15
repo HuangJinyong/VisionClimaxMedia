@@ -26,10 +26,10 @@ extension UIButton {
         let btn = UIButton()
         btn.setTitle(title, for: .normal)
         btn.tag = tag
-        btn.backgroundColor = UIColor.clear()
+        btn.backgroundColor = UIColor.clear
         btn.layer.borderWidth = 2
         btn.layer.cornerRadius = 20
-        btn.layer.borderColor = UIColor.white().cgColor
+        btn.layer.borderColor = UIColor.white.cgColor
         btn.addTarget(target, action: action, for: .touchUpInside)
         
         return btn
